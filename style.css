@@ -1,0 +1,580 @@
+:root {
+    /* Paleta de colores: Modo Oscuro (Morado Nocturno & Acentos Cálidos) */
+    --bg-color: #1a0f1d;               /* Fondo general morado muy oscuro y elegante */
+    --card-bg: #27162b;                /* Fondo de tarjetas morado noche */
+    --primary-purple: #e2b6e8;         /* Morado suave/lavanda pastel para títulos principales */
+    --accent-red: #ff4d6d;             /* Rojo neón suave/rosado para acentos y destacados */
+    --soft-purple: #4a2750;           /* Morado medio para bordes y separadores */
+    --text-primary: #f2e9f4;           /* Texto principal muy claro para fácil lectura */
+    --text-secondary: #c2a7c7;         /* Texto secundario morado claro */
+    
+    /* Tipografías */
+    --font-handwriting: 'Dancing Script', cursive;
+    --font-main: 'Poppins', sans-serif;
+}
+
+/* Reset Global para Mobile-First */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   PANTALLA DE BIENVENIDA (OVERLAY)
+   ========================================== */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #160718 0%, #2c0b22 50%, #480ca8 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-box {
+    background: rgba(39, 22, 43, 0.95);
+    padding: 30px 20px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 420px;
+    border: 2px solid var(--soft-purple);
+}
+
+.welcome-box h1 {
+    font-family: var(--font-handwriting);
+    font-size: 2.3rem;
+    color: var(--primary-purple);
+    margin-bottom: 10px;
+}
+
+.welcome-box p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+#start-btn {
+    background: linear-gradient(45deg, #7209b7, var(--accent-red));
+    color: white;
+    border: none;
+    padding: 12px 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 260px;
+}
+
+#start-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(114, 9, 183, 0.5);
+}
+
+/* ==========================================
+   ENCABEZADO / HERO
+   ========================================== */
+.hero {
+    text-align: center;
+    margin: 35px 15px 20px;
+    width: 90%;
+    max-width: 700px;
+}
+
+.title {
+    font-family: var(--font-handwriting);
+    font-size: 3rem;
+    color: var(--primary-purple);
+    margin: 0;
+    text-shadow: 0 0 10px rgba(226, 182, 232, 0.2);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--accent-red);
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+/* ==========================================
+   TÍTULOS DE SECCIÓN
+   ========================================== */
+.section-title {
+    font-family: var(--font-handwriting);
+    color: var(--primary-purple);
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+/* ==========================================
+   CONTADOR DE DÍAS JUNTOS
+   ========================================== */
+.counter-section {
+    width: 90%;
+    max-width: 650px;
+    margin: 10px auto 25px;
+}
+
+.counter-card {
+    background: var(--card-bg);
+    padding: 20px 15px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1.5px solid var(--soft-purple);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.counter-card h3 {
+    font-family: var(--font-handwriting);
+    font-size: 1.8rem;
+    color: var(--primary-purple);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.counter-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.time-box {
+    background: #1e0d22;
+    padding: 12px 18px;
+    border-radius: 15px;
+    border: 1px solid var(--soft-purple);
+    min-width: 80px;
+}
+
+.time-box span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    display: block;
+    line-height: 1;
+}
+
+.time-box p {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.time-separator {
+    font-size: 1.3rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+.counter-footer {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ==========================================
+   CARTA PRINCIPAL
+   ========================================== */
+.card-section {
+    width: 90%;
+    max-width: 650px;
+    margin: 10px auto 30px;
+}
+
+.letter-card {
+    background: var(--card-bg);
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--accent-red);
+    border-top: 1px solid var(--soft-purple);
+    border-right: 1px solid var(--soft-purple);
+    border-bottom: 1px solid var(--soft-purple);
+}
+
+.letter-card h2 {
+    font-family: var(--font-handwriting);
+    color: var(--primary-purple);
+    font-size: 1.9rem;
+    margin-top: 0;
+}
+
+.letter-card p {
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   GRILLA DE SOBRES
+   ========================================== */
+.envelopes-section {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.envelopes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.envelope-card {
+    background: var(--card-bg);
+    padding: 20px 10px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1.5px solid var(--soft-purple);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.envelope-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.2);
+}
+
+.envelope-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.envelope-card h3 {
+    font-size: 0.95rem;
+    color: var(--primary-purple);
+    margin: 8px 0 4px;
+}
+
+.envelope-card p {
+    font-size: 0.78rem;
+    color: var(--accent-red);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ==========================================
+   GALERÍA DE FOTOS 3D
+   ========================================== */
+.gallery-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.photo-card {
+    background-color: transparent;
+    width: 220px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+}
+
+.photo-card:hover .photo-inner,
+.photo-card:active .photo-inner {
+    transform: rotateY(180deg);
+}
+
+.photo-front, .photo-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.photo-front {
+    background-color: var(--card-bg);
+    border: 2px solid var(--soft-purple);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.photo-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.photo-label {
+    margin-top: 10px;
+    font-family: var(--font-handwriting);
+    font-size: 1.3rem;
+    color: var(--primary-purple);
+    font-weight: bold;
+}
+
+.photo-back {
+    background: linear-gradient(135deg, #38123c 0%, #6e0d25 100%);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid var(--accent-red);
+}
+
+.photo-back p {
+    font-family: var(--font-handwriting);
+    font-size: 1.35rem;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE DE MÚSICA
+   ========================================== */
+.music-btn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #7209b7, var(--accent-red));
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+}
+
+.music-btn.paused {
+    background: #4a3e4d;
+    opacity: 0.85;
+}
+
+/* ==========================================
+   SECCIÓN FINAL & BOTÓN GATITOS
+   ========================================== */
+.footer-section {
+    width: 90%;
+    max-width: 650px;
+    margin: 40px auto 90px;
+    text-align: center;
+}
+
+.final-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #1e0d22 100%);
+    padding: 30px 20px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1.5px solid var(--soft-purple);
+}
+
+.final-card h2 {
+    font-family: var(--font-handwriting);
+    font-size: 2.2rem;
+    color: var(--primary-purple);
+    margin-top: 0;
+}
+
+.final-message {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    box-shadow: 0 6px 18px rgba(255, 117, 140, 0.3);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(45deg, #ff6b81, #ff758c);
+}
+
+/* ==========================================
+   AJUSTE DE VENTANAS EMERGENTES (SWEETALERT2)
+   ========================================== */
+.swal2-popup {
+    background: #251229 !important;
+    color: #f2e9f4 !important;
+    border: 1.5px solid var(--soft-purple) !important;
+}
+
+/* ==========================================
+   MEDIA QUERIES (PANTALLAS GRANDES / PC)
+   ========================================== */
+@media (min-width: 768px) {
+    .welcome-box {
+        padding: 40px 30px;
+    }
+    .welcome-box h1 {
+        font-size: 2.8rem;
+    }
+    .hero {
+        margin: 50px 20px 30px;
+    }
+    .title {
+        font-size: 3.8rem;
+    }
+    .subtitle {
+        font-size: 1.15rem;
+    }
+    .section-title {
+        font-size: 2.8rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    .counter-card {
+        padding: 25px 20px;
+    }
+    .counter-card h3 {
+        font-size: 2.1rem;
+    }
+    .time-box {
+        padding: 15px 25px;
+        min-width: 90px;
+    }
+    .time-box span {
+        font-size: 2.2rem;
+    }
+    .letter-card {
+        padding: 35px;
+    }
+    .letter-card h2 {
+        font-size: 2.2rem;
+    }
+    .letter-card p {
+        font-size: 1.05rem;
+    }
+    .envelopes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 20px;
+    }
+    .envelope-card {
+        padding: 25px 15px;
+    }
+    .envelope-icon {
+        font-size: 2.5rem;
+    }
+    .photo-card {
+        width: 240px;
+        height: 320px;
+    }
+    .photo-front img {
+        height: 220px;
+    }
+    .photo-label {
+        font-size: 1.4rem;
+    }
+    .photo-back p {
+        font-size: 1.5rem;
+    }
+    .music-btn {
+        bottom: 25px;
+        right: 25px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    .final-card {
+        padding: 40px 30px;
+    }
+    .final-card h2 {
+        font-size: 2.6rem;
+    }
+    .final-message {
+        font-size: 1.05rem;
+    }
+    .whatsapp-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        width: auto;
+    }
+}
+
+/* Cambia el borde del icono de SweetAlert2 a blanco */
+.swal2-icon {
+    border-color: #ffffff !important;
+}
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi persona favorita ❤️</title>
+    
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- SweetAlert2 (Para alertas bonitas e interactivas) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Archivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Pantalla de bienvenida / Bloqueo con música -->
+    <div id="welcome-screen" class="welcome-overlay">
+        <div class="welcome-box">
+            <h1>Quiero darte algo especial ✨</h1>
+            <p>Acompañame en esta aventura solo para ti</p>
+            <button id="start-btn" onclick="startExperience()">Te veo</button>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="main-content" id="main-content">
+        <!-- Encabezado / Portada -->
+        <header class="hero">
+            <h1 class="title">Hola mi pequeña Chocola</h1>
+            <p class="subtitle">Hice esto para poder mostrarte cuánto te amo</p>
+        </header>
+
+        <!-- NUEVA SECCIÓN: Contador de Días Juntos -->
+        <section class="counter-section">
+            <div class="counter-card">
+                <h3>Nuestra historia comenzo un 13 de diciembre del 2019 🌟</h3>
+                <div class="counter-display">
+                    <div class="time-box">
+                        <span id="days-count">0</span>
+                        <p>Días</p>
+                    </div>
+                    <div class="time-separator">❤️</div>
+                    <div class="time-box">
+                        <span id="hours-count">0</span>
+                        <p>Horas</p>
+                    </div>
+                </div>
+                <p class="counter-footer">Y nuestro tiempo juntos seguira avanzando por siempre ⌛</p>
+            </div>
+        </section>
+
+        <!-- Sección 1: Carta principal -->
+        <section class="card-section">
+            <div class="letter-card">
+                <h2>Quiero decirte que 💗</h2>
+                <p id="letter-text">
+                    Aunque a veces sea un completo tonto, nunca olvidare lo que me haces sentir,
+                    la amabilidad que me muestras e incluso las risas que me das, todas y cada una estan
+                    en un lugar especial al que solo perteneces tu.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección 2: Sobres interactivos -->
+        <section class="envelopes-section">
+            <h2 class="section-title">Puede que no siempre este presente pero...</h2>
+            <p class="section-subtitle">Quiero ayudarte incluso cuando no pueda estar a tu lado</p>
+
+            <div class="envelopes-grid">
+                <!-- Sobre 1 -->
+                <div class="envelope-card" onclick="openEnvelope('sad')">
+                    <div class="envelope-icon">🌧️</div>
+                    <h3>Abreme cuando me extrañes mucho</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+
+                <!-- Sobre 2 -->
+                <div class="envelope-card" onclick="openEnvelope('sleep')">
+                    <div class="envelope-icon">🌙</div>
+                    <h3>Abreme cuando no puedas dormir</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+
+                <!-- Sobre 3 -->
+                <div class="envelope-card" onclick="openEnvelope('happy')">
+                    <div class="envelope-icon">✨</div>
+                    <h3>Abreme cuando tengas un mal día</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+
+                <!-- Sobre 4 (NUEVO) -->
+                <div class="envelope-card" onclick="openEnvelope('sick')">
+                    <div class="envelope-icon">🩹</div>
+                    <h3>Abreme cuando te sientas mal</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+
+                <!-- Sobre 5 (NUEVO) -->
+                <div class="envelope-card" onclick="openEnvelope('future')">
+                    <div class="envelope-icon">🪐</div>
+                    <h3>Abreme cuando tengas miedo del futuro</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+
+                <!-- Sobre 6 -->
+                <div class="envelope-card" onclick="openEnvelope('love')">
+                    <div class="envelope-icon">❤️</div>
+                    <h3>Abreme cuando quieras recordar cuánto te amo</h3>
+                    <p>Haz clic para leer</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Sección 3: Galería de Recuerdos -->
+        <section class="gallery-section">
+            <h2 class="section-title">Nuestros momentos canonicos 🕸️</h2>
+            <p class="section-subtitle">Toca o pasa el cursor sobre cada foto para leer lo que representan en mi cabeza</p>
+
+            <div class="gallery-grid">
+                <!-- Tarjeta 1 -->
+                <div class="photo-card">
+                    <div class="photo-inner">
+                        <div class="photo-front">
+                            <img src="assets/foto1.jpg" alt="Foto 1">
+                            <span class="photo-label">Nuestro primer acercamiento ⚔️</span>
+                        </div>
+                        <div class="photo-back">
+                            <p>Recuerdas ese momento cuando nos conocimos mi lindo gatito? Aun recuerdo la cicatriz en mi pancita por un beso tuyo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="photo-card">
+                    <div class="photo-inner">
+                        <div class="photo-front">
+                            <img src="assets/foto2.jpg" alt="Foto 2">
+                            <span class="photo-label">Eres un techo? 👻</span>
+                        </div>
+                        <div class="photo-back">
+                            <p>Recuerdo con cariño esas primeras video llamadas donde lo unico que me dejabas ver era tu techo, para mi fue muy especial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="photo-card">
+                    <div class="photo-inner">
+                        <div class="photo-front">
+                            <img src="assets/foto3.jpg" alt="Foto 3">
+                            <span class="photo-label">Me llenas de determinación ❤️</span>
+                        </div>
+                        <div class="photo-back">
+                            <p>Pensar que gracias a ti, conoceria un mundo nuevo aprendiendo de tus gustos, muero por probar cosas nuevas a tu lado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 (NUEVA) -->
+                <div class="photo-card">
+                    <div class="photo-inner">
+                        <div class="photo-front">
+                            <img src="assets/foto4.jpg" alt="Foto 4">
+                            <span class="photo-label">Un hogar que construir 🐮</span>
+                        </div>
+                        <div class="photo-back">
+                            <p>Entonces... Quires contruir una granja a mi lado? Tratare de no quemar nada lo prometo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script de JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Sección 4: Cierre y Mensaje Final -->
+        <section class="footer-section">
+            <div class="final-card">
+                <h2>Aunque la distancia sea enorme, nuestro corazones siempre estaran juntos. 💕</h2>
+                <p class="final-message">
+                    Muchas gracias por estar a mi lado, siempre y en cada momento, hace tiempo que no hago un detalle para ti y quiero disculparme por eso, ya que tu siempre me das algo especial,
+                    gracias enserio por quedarte conmigo sin importar que, por siempre estar ahi para mi cuando lo necesito y por siempre estar dispuesta a apoyarme en todo,
+                    eres la persona mas especial que conozco y siempre lo seras, te amo con todo mi corazón y espero que ese sentimiento no haga mas que crecer, te amo Ámbar y lo hare hoy, lo hare mañana
+                    y lo hare siempre. 💗
+                </p>
+
+                <!-- Botón directo a tu WhatsApp -->
+                <a href="https://www.youtube.com/watch?v=vEJUBfogJgs" target="_blank" class="whatsapp-btn">
+                    Ahora, que te parece un lindo video de gatitos? 🐈
+                </a>
+            </div>
+        </section>
+
+    <!-- Elemento de Audio (Música de fondo) -->
+    <audio id="bg-music" loop>
+        <source src="assets/cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Botón flotante para pausar/reproducir la música -->
+    <button id="music-control-btn" class="music-btn" onclick="toggleMusic()" title="Pausar/Reproducir música">
+        🎵 <span id="music-text">Música Sonando</span>
+    </button>
+
+</body>
+</html>
